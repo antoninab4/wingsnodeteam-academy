@@ -17,7 +17,9 @@ export const TerminalSection = ({ user }: { user: UserState }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-      bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+      if (lines.length > 2) {
+          bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
   }, [lines]);
 
   const handleCommand = (e: React.KeyboardEvent) => {
@@ -107,7 +109,7 @@ export const TerminalSection = ({ user }: { user: UserState }) => {
                           onKeyDown={handleCommand}
                           className="bg-transparent border-none outline-none text-slate-200 w-full focus:ring-0 p-0"
                           autoComplete="off"
-                          autoFocus
+                          
                       />
                   </div>
               </div>
