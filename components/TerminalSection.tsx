@@ -15,15 +15,17 @@ export const TerminalSection = ({ user }: { user: UserState }) => {
   ]);
   const [input, setInput] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [interacted, setInteracted] = useState(false);
 
   useEffect(() => {
-      if (lines.length > 2) {
+      if (interacted) {
           bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
       }
-  }, [lines]);
+  }, [lines, interacted]);
 
   const handleCommand = (e: React.KeyboardEvent) => {
       if (e.key === 'Enter') {
+          setInteracted(true);
           const cmd = input.trim().toLowerCase();
           setLines(prev => [...prev, { type: 'input', content: <><span className="text-pink-500">root@wings-node:~#</span> {input}</> }]);
           

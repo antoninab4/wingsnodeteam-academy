@@ -15,6 +15,7 @@ import { TerminalSection } from './components/TerminalSection';
 export default function App() {
   const [activeLevelId, setActiveLevelId] = useState<number | null>(null);
   const [currentLessonStep, setCurrentLessonStep] = useState(0);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   
   // AI Quiz State
   const [currentQuizQuestions, setCurrentQuizQuestions] = useState<QuizQuestion[]>([]);
