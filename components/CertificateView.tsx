@@ -111,8 +111,8 @@ export const CertificateView: React.FC<{ user: UserState }> = ({ user }) => {
     };
 
     const shareTelegram = () => {
-        const text = `Я получил квалификацию ${rank} в WingsNodeTeam Academy! Мой счет: ${user.score}. Сможешь обогнать? #Web3 #WNT`;
-        const url = "https://wingsnodeteam.ru";
+        const text = `Я забрал ранг ${rank} в WingsNodeTeam Academy 🎓 Мой счёт: ${user.score} XP. Врывайся в топ — пройди Web3‑квест из 8 уровней и получи сертификат. #Web3 #WNT`;
+        const url = "https://akademywnt.netlify.app/";
         window.open(`https://t.me/share/url?url=${url}&text=${encodeURIComponent(text)}`, '_blank');
     };
 
